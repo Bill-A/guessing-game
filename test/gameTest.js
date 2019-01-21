@@ -9,8 +9,16 @@ describe('Guessing letters for secret word: "test"', () => {
         game.setMaskOnSecretWord();
     });
 
+    it('should display "...." if no quesses', () => {
+        expect(game.getGuessesDisplay()).to.eql([ '.', '.', '.', '.']);
+    });
+
     it('should be true if guess is "t"', () => {
         expect(game.isGuessOK("t")).to.be.true;
+    });
+
+    it('should display "tes."', () => {
+        expect(game.getGuessesDisplay()).to.eql([ 't', '.', '.', 't']);
     });
 
     it('should be false if guess is "j"', () => {
@@ -29,6 +37,10 @@ describe('Guessing letters for secret word: "test"', () => {
     it('should be true if guess is "t"', () => {
         expect(game.isGuessOK("t")).to.be.true;
     });
+
+    it('should display "tes."', () => {
+        expect(game.getGuessesDisplay()).to.eql([ 't', 'e', 's', 't']);
+    });
 });
 
 
@@ -38,7 +50,7 @@ describe('Display guessed letters for secret word: "driven"', () => {
         game.setMaskOnSecretWord();
     });
 
-    it('should display "......" the first time called', () => {
+    it('should display "......" if no quesses', () => {
         expect(game.getGuessesDisplay()).to.eql([ '.', '.', '.', '.', '.', '.' ]);
     });
 
@@ -73,7 +85,7 @@ describe('Display guessed letters for secret word: "guesses"', () => {
         game.setMaxGuesses(10);
     });
 
-    it('should display "......." the first time called', () => {
+    it('should display "......." if no quesses', () => {
         expect(game.getGuessesDisplay()).to.eql([ '.', '.', '.', '.', '.', '.', '.' ]);
     });
 
@@ -98,34 +110,39 @@ describe('Display guessed letters for secret word: "guesses"', () => {
     });
 });
 
-// describe('Display letters guessed for secret word: "letters"', () => {
-//     before(() => {
-//         game.setSecretWord("letters");
-//         game.setMaskOnSecretWord();
-//         game.setMaxGuesses(10);
-//     });
-//
-//     it('should display "......." the first time called', () => {
-//         expect(game.getGuessesDisplay()).to.eql([ '.', '.', '.', '.', '.', '.', '.' ]);
-//     });
-//
-//     it('should be true if guess is "s"', () => {
-//         expect(game.isGuessOK("s")).to.be.true;
-//     });
-//
-//     it('should be true if guess is "z"', () => {
-//         expect(game.isGuessOK("z")).to.be.false;
-//     });
-//
-//     it('should display "......s"', () => {
-//         expect(game.getGuessesDisplay()).to.be.eql([ '.', '.', '.', '.' , '.', '.', 's']);
-//     });
-//
-//     it('should have 8 guesses remaining', () => {
-//         expect(game.getGuessesRemaining()).to.be.equal(8);
-//     });
-//
-//     it('should display "s,z"', () => {
-//         expect(game.getLettersGuessed()).to.be.eql([ 's', 'z']);
-//     });
-// });
+describe('Display letters guessed for secret word: "letters"', () => {
+    before(() => {
+        game.setSecretWord("letters");
+        game.setMaskOnSecretWord();
+        game.setMaxGuesses(10);
+        game.setLettersGuessed();
+    });
+
+    it('should display "......." the first time called', () => {
+        expect(game.getGuessesDisplay()).to.eql([ '.', '.', '.', '.', '.', '.', '.' ]);
+    });
+
+    it('should be true if guess is "s"', () => {
+        expect(game.isGuessOK("s")).to.be.true;
+    });
+
+    it('should be true if guess is "z"', () => {
+        expect(game.isGuessOK("z")).to.be.false;
+    });
+
+    it('should be false if guess is "a"', () => {
+        expect(game.isGuessOK("a")).to.be.false;
+    });
+
+    it('should display "......s"', () => {
+        expect(game.getGuessesDisplay()).to.be.eql([ '.', '.', '.', '.' , '.', '.', 's']);
+    });
+
+    it('should have 7 guesses remaining', () => {
+        expect(game.getGuessesRemaining()).to.be.equal(7);
+    });
+
+    it('should display "s,z"', () => {
+        expect(game.getLettersGuessed()).to.be.eql([ 's', 'z', 'a']);
+    });
+});

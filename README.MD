@@ -25,9 +25,9 @@
 [ ] 9. After the user wins/loses the game should automatically choose another word and make the user play it.
 
 
-### Project setup and package installation 
+### Project Setup  
 
-Create a new project using statis web template.
+Create a new project using static web template.
 
 ```sh
 $ file
@@ -35,7 +35,7 @@ $   new project
 $   static web static web 
 ```
 
-Create src and test directories ...
+Create src and test directories.
 
 ```sh
 $ file
