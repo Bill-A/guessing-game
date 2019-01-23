@@ -19,7 +19,7 @@ module.exports = {
                 results = true;
             }
         },
-        this.secretWordHidden);
+        this);
 
         this.guessesRemaining--;
         return results;
