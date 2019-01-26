@@ -1,28 +1,27 @@
-## Guessing Game Kata
+## Guessing Game
 
-[ ] 1. [Watch the demo](hangman-game-demo.mov).
+#### IMPORTANT
 
-[ ] 2.  Choose a theme for your game! You can choose any subject for your theme, though, so be creative!
+  *Solve this problem Test-First* -- use TDD to design the functionality of the app, in small manageable functions. 
 
-[ ] 3. Use key events to listen for the letters that your players will type.
-
----
-
-[ ] 4. Display the following on the page:
-
-[ ] 5. Press any key to get started!
-
-[ ] 6. Wins: (# of times user guessed the word correctly).
-
-   * If the word is `madonna`, display it like this when the game starts: `_ _ _ _ _ _ _`.
-
-   * As the user guesses the correct letters, reveal them: `m a d o _  _ a`.
-
-[ ] 7. Number of Guesses Remaining: (# of guesses remaining for the user).
-
-[ ] 8. Letters Already Guessed: (Letters the user has guessed, displayed like `L Z Y H`).
-
-[ ] 9. After the user wins/loses the game should automatically choose another word and make the user play it.
+### Enhancements:
+```sh
+ 1. refactor the code to use classes instead of functions
+ 2. secretWord and guessed letters are lower-cased
+ 3. maxGuesses is set to the number of characters of the secret word
+ 4. only valid characters are a-z and A-Z
+ 5. create a program, playGame.js, that plays the word guessing game.
+    - Display the following on the page:
+        Welcome to the Secret Word Guessing Game!
+        Display the masked word on the page.
+            * If the word is `madonna`, display it like this when the game starts: `_ _ _ _ _ _ _`.
+            * As the user guesses the correct letters, reveal them: `m a d o _  _ a`.
+        Display Number of Guesses Remaining: 
+        Display Letters Already Guessed: (displayed like `m a d a`).
+ 6. enhance the game to obtain random words from a word generator API
+ 7. make the game browser based using any framework youu desire -- React, Angular, Vue. 
+    Choose a creative theme for your game!
+```
 
 
 ### Project Setup  
