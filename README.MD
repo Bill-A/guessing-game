@@ -19,10 +19,9 @@
         Display Number of Guesses Remaining: 
         Display Letters Already Guessed: (displayed like `m a d a`).
  6. enhance the game to obtain random words from a word generator API
- 7. make the game browser based using any framework youu desire -- React, Angular, Vue. 
+ 7. make the game browser based using any framework you desire -- React, Angular, Vue. 
     Choose a creative theme for your game!
 ```
-
 
 ### Project Setup  
 
