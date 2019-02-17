@@ -1,13 +1,14 @@
 'use strict';
 let inquirer = require('inquirer');
 let GameEngine = require('../src/gameEngine.js');
+let axios = require('axios');
 const secretWordsList = require('../src/secretWords.js');
 
 let questions = [
     {
         type: 'input',
         name: 'letter',
-        message: "Guess a letter of the secret word?",
+        message: "Guess a letter of the secret word:",
         validate: function(value) {
             var pass = value.match(
                 /[a-zA-Z]+/g
@@ -21,20 +22,54 @@ let questions = [
 ];
 
 
+
+
+let randomWords;
+let randomWordsList = [];
 let game = new GameEngine();
-game.setSecretWord(secretWordsList[Math.floor(Math.random() * secretWordsList.length)]);
-game.setMaskOnSecretWord();
-game.setMaxGuesses(game.getGuessesDisplay().join('').length);
-game.setLettersGuessed();
+
+
+
 
 console.log("==============================================");
 console.log("");
 console.log("Welcome to the Secret Word Guessing Game!");
 console.log("");
 console.log("==============================================");
-console.log("\n ", `${game.getGuessesDisplay().join(' ')}`);
-ask();
 
+(async () => {
+    randomWords = await getRandomWords();
+    randomWordsList = randomWords.data.phrase.toLowerCase().split(" ");
+
+    // console.log('Retrieved these random words: ',randomWordsList);
+
+    game.setSecretWord(randomWordsList[Math.floor(Math.random() * randomWordsList.length)]);
+    // game.setSecretWord(secretWordsList[Math.floor(Math.random() * secretWordsList.length)]);
+    game.setMaskOnSecretWord();
+    game.setMaxGuesses(game.getGuessesDisplay().join('').length * 2);
+    game.setLettersGuessed();
+
+
+    console.log("\n ", `${game.getGuessesDisplay().join(' ')}`);
+
+    ask();
+})();
+
+
+
+
+
+
+//Using Async Await
+async function getRandomWords(){
+
+    try {
+        return await axios.get('https://corporatebs-generator.sameerkumar.website/');
+    }
+    catch (error) {
+        console.log(error.message);
+    }
+}
 
 function ask() {
     inquirer
@@ -52,6 +87,8 @@ function ask() {
                     resolve( ask() );
                 } else {
                     console.log("==============================================");
+                    console.log("");
+                    console.log("The word was: ", `${game.getSecretWord()}`);
                     console.log("");
                     console.log("          Game Over");
                     console.log("");

@@ -6,6 +6,11 @@
   "directories": {
     "test": "test"
   },
+  "homepage": " ",
+  "repository": {
+    "type": "git",
+    "url": "git:/github.com:Bill-A/guessing-game.git"
+  },
   "scripts": {
     "test": "mocha test/*Test.js --reporter spec"
   },
@@ -17,9 +22,9 @@
   "author": "Bill Allen",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "chai": "^4.2.0",
     "inquirer": "^6.2.1",
     "mocha": "^5.2.0"
-  },
-  "homepage": "https://github.com/Bill-A/guessing-game"
+  }
 }

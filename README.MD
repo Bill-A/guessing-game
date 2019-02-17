@@ -6,19 +6,7 @@
 
 ### Enhancements
 ```sh
- 1. [X] refactor the code to use classes instead of functions
- 2. [X] secretWord and guessed letters are lower-cased
- 3. [X] maxGuesses is set to the number of characters of the secret word
- 4. [X] only valid characters are a-z and A-Z
- 5. [X] create a program, playGame.js, that plays the word guessing game.
-    - Display the following on the page:
-        Welcome to the Secret Word Guessing Game!
-        Display the masked word on the page.
-            * If the word is `madonna`, display it like this when the game starts: `_ _ _ _ _ _ _`.
-            * As the user guesses the correct letters, reveal them: `m a d o _  _ a`.
-        Display Number of Guesses Remaining: 
-        Display Letters Already Guessed: (displayed like `m a d a`).
- 6. [ ] enhance the game to obtain random words from a word generator API
+ 6. [x] enhance the game to obtain random words from a word generator API
  7. [ ] make the game browser based using any framework you desire -- React, Angular, Vue. 
         Choose a creative theme for your game!
 ```
@@ -53,10 +41,12 @@ $   test
 $ npm init
 $ npm i mocha
 $ npm i chai
+$ npm i axios
+$ npm install
 ```
 
 
-#### Run Tests from outside the IDE
+#### Run your tests
 
 ```sh
 $ npm run test

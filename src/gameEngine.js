@@ -39,6 +39,10 @@ class GameEngine {
         return this.lettersGuessed;
     }
 
+    getSecretWord() {
+        return this.secretWord;
+    }
+
     setSecretWord(word) {
         this.secretWord = word.toLowerCase();
         this.secretWordSplit = Array.from(this.secretWord);
